@@ -29,7 +29,7 @@ function useLenis() {
   useEffect(() => {
     if (reduced) return;
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.0,
       smoothWheel: true,
       syncTouch: true,
       gestureOrientation: "vertical",
@@ -48,8 +48,6 @@ function useLenis() {
     };
   }, [reduced]);
 }
-
-// Component removed as it's no longer used
 
 function Preloader({ onDone }: { onDone: () => void }) {
   const [progress, setProgress] = useState(0);
@@ -76,8 +74,8 @@ function Preloader({ onDone }: { onDone: () => void }) {
     <motion.div className="fixed inset-0 z-[100] bg-[#07070a]">
       <div className="absolute inset-0 grid place-items-center">
         <div className="text-center">
-          <div className="text-[11px] tracking-[0.35em] text-white/55">L U M I N A</div>
-          <div className="mt-4 font-semibold tabular-nums text-white text-5xl md:text-6xl">
+          <div className="text-sm tracking-[0.35em] text-white/55">L U M I N A</div>
+          <div className="mt-4 font-semibold tabular-nums text-white text-6xl md:text-7xl">
             {progress}%
           </div>
         </div>
@@ -175,7 +173,7 @@ function Marquee({ text }: { text: string }) {
           transition={{ duration: 18, ease: "linear", repeat: Infinity }}
         >
           {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className="text-white/70 tracking-[0.25em] text-xs md:text-sm">
+            <div key={i} className="text-white/70 tracking-[0.25em] text-sm md:text-base">
               {text}
             </div>
           ))}
@@ -187,7 +185,7 @@ function Marquee({ text }: { text: string }) {
           aria-hidden="true"
         >
           {Array.from({ length: 10 }).map((_, i) => (
-            <div key={i} className="text-white/70 tracking-[0.25em] text-xs md:text-sm">
+            <div key={i} className="text-white/70 tracking-[0.25em] text-sm md:text-base">
               {text}
             </div>
           ))}
@@ -218,12 +216,12 @@ function MenuSection({ items }: { items: MenuItem[] }) {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-end justify-between gap-8">
           <div>
-            <div className="text-[11px] tracking-[0.35em] text-white/55">SIGNATURE MENU</div>
-            <h2 className="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-white">
+            <div className="text-sm tracking-[0.35em] text-white/55">SIGNATURE MENU</div>
+            <h2 className="mt-4 text-5xl md:text-7xl font-semibold tracking-tight text-white">
               Modern fusion, engineered.
             </h2>
           </div>
-          <div className="hidden md:block text-white/55 max-w-sm text-sm leading-relaxed">
+          <div className="hidden md:block text-white/55 max-w-sm text-base leading-relaxed">
             A seasonal tasting of contrast: heat + ice, smoke + citrus, umami + silence.
           </div>
         </div>
@@ -297,19 +295,19 @@ function MenuRow({
     >
       <motion.div style={{ y: textY }} className="min-w-0">
         <div className="flex items-baseline justify-between gap-6">
-          <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-white truncate">
+          <h3 className="text-3xl md:text-4xl font-medium tracking-tight text-white truncate">
             {item.title}
           </h3>
-          <div className="text-white/70 tracking-[0.25em] text-xs md:text-sm whitespace-nowrap">
+          <div className="text-white/70 tracking-[0.25em] text-sm md:text-base whitespace-nowrap">
             {item.price}
           </div>
         </div>
-        <p className="mt-3 text-white/60 leading-relaxed max-w-xl">
+        <p className="mt-3 text-white/60 leading-relaxed max-w-xl text-base">
           {item.description}
         </p>
         <div className="mt-5 flex items-center gap-3">
           <div className="h-px w-10 bg-white/25" />
-          <div className="text-[11px] tracking-[0.35em] text-white/55">{`COURSE ${String(index + 1).padStart(2, "0")}`}</div>
+          <div className="text-sm tracking-[0.35em] text-white/55">{`COURSE ${String(index + 1).padStart(2, "0")}`}</div>
         </div>
       </motion.div>
 
@@ -320,7 +318,7 @@ function MenuRow({
         <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/0" />
         <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <div className="text-white/80 text-xs tracking-[0.35em]">LUMINA</div>
+          <div className="text-white/80 text-sm tracking-[0.35em]">LUMINA</div>
           <div className="h-2.5 w-2.5 rounded-full" style={{ background: item.accent }} />
         </div>
       </motion.div>
@@ -350,7 +348,7 @@ function ReservationButton() {
         aria-controls="reservation-modal"
       >
         <div className="absolute inset-0 rounded-full [background:radial-gradient(closest-side,rgba(255,255,255,0.16),transparent_70%)]" />
-        <span className="text-[10px] tracking-[0.35em] text-white/80">RESERVE</span>
+<span className="text-[10px] md:text-xs tracking-[0.2em] text-white/80">RESERVE</span>
       </motion.button>
 
       <AnimatePresence>
@@ -380,8 +378,8 @@ function ReservationButton() {
               <div className="p-6 md:p-8">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <div className="text-[11px] tracking-[0.35em] text-white/55">RESERVATION</div>
-                    <h3 className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight text-white">
+                    <div className="text-sm tracking-[0.35em] text-white/55">RESERVATION</div>
+                    <h3 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight text-white">
                       Table for the night.
                     </h3>
                   </div>
@@ -392,7 +390,7 @@ function ReservationButton() {
                     data-cursor="hover"
                     aria-label="Close reservation form"
                   >
-                    <span className="text-lg leading-none">×</span>
+                    <span className="text-xl leading-none">×</span>
                   </button>
                 </div>
 
@@ -408,7 +406,7 @@ function ReservationButton() {
                   <Field label="Guests" placeholder="2" type="number" min={1} max={12} />
                   <Field label="Time" placeholder="19:30" type="time" />
                   <div className="md:col-span-2">
-                    <label className="text-xs tracking-[0.25em] text-white/55">Notes</label>
+                    <label className="text-sm tracking-[0.25em] text-white/55">Notes</label>
                     <textarea
                       className="mt-2 w-full rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white/85 placeholder:text-white/25 outline-none focus:border-white/30 focus:ring-4 focus:ring-white/10 transition"
                       rows={3}
@@ -416,12 +414,12 @@ function ReservationButton() {
                     />
                   </div>
                   <div className="md:col-span-2 flex items-center justify-between pt-2">
-                    <div className="text-xs text-white/45 leading-relaxed">
+                    <div className="text-sm text-white/45 leading-relaxed">
                       By submitting, you agree to our reservation policy.
                     </div>
                     <button
                       type="submit"
-                      className="rounded-full px-5 py-3 border border-white/15 bg-white text-black text-xs tracking-[0.25em] hover:bg-white/90 transition"
+                      className="rounded-full px-5 py-3 border border-white/15 bg-white text-black text-sm tracking-[0.25em] hover:bg-white/90 transition"
                       data-cursor="hover"
                     >
                       CONFIRM
@@ -430,7 +428,7 @@ function ReservationButton() {
                 </form>
               </div>
               <div className="h-px bg-white/10" />
-              <div className="p-5 md:p-6 flex items-center justify-between text-xs tracking-[0.25em] text-white/55">
+              <div className="p-5 md:p-6 flex items-center justify-between text-sm tracking-[0.25em] text-white/55">
                 <div>KYOTO · NYC · PARIS</div>
                 <a href="#menu" className="text-white/70 hover:text-white transition" data-cursor="hover">
                   VIEW MENU
@@ -447,7 +445,7 @@ function ReservationButton() {
 function Field({ label, ...props }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="text-xs tracking-[0.25em] text-white/55">{label}</label>
+      <label className="text-sm tracking-[0.25em] text-white/55">{label}</label>
       <input
         {...props}
         className="mt-2 w-full rounded-2xl border border-white/15 bg-white/5 px-4 py-3 text-white/85 placeholder:text-white/25 outline-none focus:border-white/30 focus:ring-4 focus:ring-white/10 transition"
@@ -487,7 +485,7 @@ function Hero() {
 
         {/* Text Container */}
         <div className="relative z-10 w-full flex flex-col items-center justify-center pointer-events-none">
-          <div className="text-[11px] tracking-[0.35em] text-white/55 mb-6 text-center">MODERN FUSION · OMAKASE</div>
+          <div className="text-sm tracking-[0.35em] text-white/55 mb-6 text-center">MODERN FUSION · OMAKASE</div>
           
           <motion.div style={{ opacity: textOpacity }} className="flex gap-4 md:gap-8 overflow-hidden mix-blend-difference">
             {/* Left Word */}
@@ -499,7 +497,7 @@ function Hero() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ delay: 1.5 + i * 0.05, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display text-[clamp(4rem,10vw,12rem)] uppercase leading-none text-white tracking-tighter whitespace-pre"
+                  className="font-display text-[clamp(5rem,12vw,14rem)] uppercase leading-none text-white tracking-tighter whitespace-pre"
                 >
                   {char}
                 </motion.span>
@@ -515,7 +513,7 @@ function Hero() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ delay: 1.5 + (i + 5) * 0.05, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display text-[clamp(4rem,10vw,12rem)] uppercase leading-none text-white tracking-tighter whitespace-pre"
+                  className="font-display text-[clamp(5rem,12vw,14rem)] uppercase leading-none text-white tracking-tighter whitespace-pre"
                 >
                   {char}
                 </motion.span>
@@ -523,29 +521,29 @@ function Hero() {
             </motion.div>
           </motion.div>
 
-          <p className="mt-8 text-white/65 max-w-xl leading-relaxed text-center px-6 text-sm md:text-base mix-blend-difference">
+          <p className="mt-8 text-white/65 max-w-xl leading-relaxed text-center px-6 text-base md:text-lg mix-blend-difference">
             Where fire meets ice. Lumina is a high-end modern fusion experience—minimalist luxury, maximal flavor.
           </p>
         </div>
 
         {/* Header Overlay */}
         <header className="absolute top-0 inset-x-0 z-20 px-5 md:px-10 lg:px-16 pt-8 flex items-center justify-between pointer-events-auto">
-          <a href="#" className="text-white/85 tracking-[0.35em] text-xs" data-cursor="hover">LUMINA</a>
-          <nav className="hidden md:flex items-center gap-8 text-xs tracking-[0.35em] text-white/55">
+          <a href="#" className="text-white/85 tracking-[0.35em] text-sm" data-cursor="hover">LUMINA</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm tracking-[0.35em] text-white/55">
             <a href="#menu" className="hover:text-white/85 transition" data-cursor="hover">MENU</a>
             <a href="#story" className="hover:text-white/85 transition" data-cursor="hover">STORY</a>
             <a href="#hours" className="hover:text-white/85 transition" data-cursor="hover">HOURS</a>
           </nav>
-          <a href="#menu" className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs tracking-[0.25em] text-white/80 hover:bg-white/10 transition" data-cursor="hover">
+          <a href="#menu" className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm tracking-[0.25em] text-white/80 hover:bg-white/10 transition" data-cursor="hover">
             EXPLORE
           </a>
         </header>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 inset-x-0 z-20 px-5 md:px-10 lg:px-16 flex items-end justify-between gap-6 text-xs tracking-[0.25em] text-white/55 pointer-events-auto">
-          <div className="hidden md:block">KYOTO / NEW YORK / PARIS</div>
-          <div className="ml-auto">SCROLL</div>
-        </div>
+{/* Scroll Indicator */}
+<div className="absolute bottom-8 inset-x-0 z-20 px-5 md:px-10 lg:px-16 flex items-end justify-between gap-6 text-sm tracking-[0.25em] text-white/55 pointer-events-auto">
+  <div className="hidden md:block">KYOTO / NEW YORK / PARIS</div>
+</div>
       </motion.div>
     </section>
   );
@@ -559,12 +557,12 @@ function Story() {
     <section id="story" className="relative z-[2] px-5 md:px-10 lg:px-16 py-24 md:py-32">
       <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 items-start" ref={ref}>
         <div className="md:col-span-5">
-          <div className="text-[11px] tracking-[0.35em] text-white/55">THE PHILOSOPHY</div>
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-white">
+          <div className="text-sm tracking-[0.35em] text-white/55">THE PHILOSOPHY</div>
+          <h2 className="mt-4 text-5xl md:text-6xl font-semibold tracking-tight text-white">
             Negative space, positive flavor.
           </h2>
         </div>
-        <motion.div style={{ y }} className="md:col-span-7 text-white/65 leading-relaxed">
+        <motion.div style={{ y }} className="md:col-span-7 text-white/65 leading-relaxed text-base">
           <p>
             Lumina is built on restraint. Each plate is a study in balance—quiet textures, precise heat, and a finishing
             brightness that lingers like a neon afterimage.
@@ -576,16 +574,16 @@ function Story() {
 
           <div id="hours" className="mt-10 grid grid-cols-2 gap-6">
             <div className="rounded-2xl border border-white/10 bg-white/3 p-5">
-              <div className="text-xs tracking-[0.25em] text-white/55">HOURS</div>
-              <div className="mt-3 text-white/80 text-sm leading-relaxed">
+              <div className="text-sm tracking-[0.25em] text-white/55">HOURS</div>
+              <div className="mt-3 text-white/80 text-base leading-relaxed">
                 Tue–Sun · 17:30 → 23:30
                 <br />
                 Omakase seating 19:00 & 21:15
               </div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/3 p-5">
-              <div className="text-xs tracking-[0.25em] text-white/55">ADDRESS</div>
-              <div className="mt-3 text-white/80 text-sm leading-relaxed">
+              <div className="text-sm tracking-[0.25em] text-white/55">ADDRESS</div>
+              <div className="mt-3 text-white/80 text-base leading-relaxed">
                 11 Mercer St
                 <br />
                 Lower Manhattan
@@ -603,12 +601,12 @@ function Footer() {
     <footer className="relative z-[2] px-5 md:px-10 lg:px-16 py-16 border-t border-white/10">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
         <div>
-          <div className="text-white/85 tracking-[0.35em] text-xs">LUMINA</div>
-          <div className="mt-3 text-white/55 text-sm max-w-md leading-relaxed">
+          <div className="text-white/85 tracking-[0.35em] text-sm">LUMINA</div>
+          <div className="mt-3 text-white/55 text-base max-w-md leading-relaxed">
             Modern fusion tasting room. Minimalist luxury. Maximum contrast.
           </div>
         </div>
-        <div className="flex items-center gap-8 text-xs tracking-[0.35em] text-white/55">
+        <div className="flex items-center gap-8 text-sm tracking-[0.35em] text-white/55">
           <a href="#menu" className="hover:text-white/85 transition" data-cursor="hover">
             MENU
           </a>
