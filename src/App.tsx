@@ -318,9 +318,8 @@ function MenuRow({
         <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-black/0" />
         <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <div className="text-white/80 text-sm tracking-[0.35em]">LUMINA</div>
-          <div className="h-2.5 w-2.5 rounded-full" style={{ background: item.accent }} />
-        </div>
+  <div className="text-white/80 text-sm tracking-[0.35em]">LUMINA</div>
+</div>
       </motion.div>
 
       <div className="pointer-events-none absolute -inset-x-2 -inset-y-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
